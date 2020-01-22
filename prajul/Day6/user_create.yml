@@ -1,0 +1,14 @@
+---
+- hosts: webserver1
+  become: yes
+  remote_user: ubuntu
+  tasks:
+  - name: create_user
+    user: 
+      name: ninja3
+      shell: /bin/bash
+      home: /home/ninja3
+  - name: create_group
+    group:
+      name: testing
+      state: present     

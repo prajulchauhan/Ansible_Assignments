@@ -1,0 +1,10 @@
+--- 
+  - name: collecting vars
+    hosts: myservers
+    gather_facts: true
+    tasks:
+    - name: Printing all the environment​ variables in Ansible
+      template:
+        src: table.html.j2
+        dest: /home/pankaj/table.html
+

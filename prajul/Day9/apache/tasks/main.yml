@@ -1,0 +1,28 @@
+---
+- name: installing apache on Ubuntu
+  when: ansible_os_family == "Debian"
+  apt:
+      name: apache2
+      state: present
+
+- name: installing apache on centos
+  when: ansible_os_family == "RedHat"
+  yum:
+      name: httpd
+      state: present
+  notify:
+    apache_restart
+- name: deletefiles
+  file:
+    path: /var/www/html/index.html
+    state: absent
+          
+- name: configuration
+  git: 
+    repo: https://gitlab.com/prajul.chauhan/apache_role_repo.git
+    dest: /var/www/html/
+    clone: yes
+    update: yes
+    force: yes
+  notify:
+    apache_restart

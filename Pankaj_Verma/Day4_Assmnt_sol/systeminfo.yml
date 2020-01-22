@@ -1,0 +1,6 @@
+--- 
+- name: fetch system info 
+  hosts: webservers
+  tasks: 
+    - debug:
+        msg: "{{ ansible_distribution }}"

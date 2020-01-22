@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  tasks:
+  - name: Save status
+    stat:
+      path: /var/www/html/index.nginx-debian.html
+    register: optional_file
+
+  - name: Nginx install
+    apt:
+      name: nginx
+      state: present
+    when: optional_file.stat.exists

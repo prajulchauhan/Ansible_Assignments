@@ -1,0 +1,23 @@
+webserver:
+        hosts:
+          172.31.34.245
+        vars:
+          ansible_user:web
+     appserver:
+         hosts:
+           172.31.42.34
+         vars:
+           ansible_user:app
+           ansible_ssh_private_key:/home/ansadmin/.ssh/id_rsa.pub
+      dbserver:
+         hosts:
+           172.31.16.109
+         vars:
+           ansible_user:db
+           ansible_ssh_private_key:/home/ansadmin/.ssh/id_rsa.pub
+           ansible_port:2022
+       zone1:
+          children:
+            webserver
+            appserver
+            dbserver

@@ -1,0 +1,19 @@
+--- 
+- name: Day 5 Assignmnt
+  hosts: webservers
+  become: yes
+  tasks: 
+    
+  - name: Create User
+    user:
+      name: Tom
+      state: present
+    tags:
+    - user
+
+  - name: Create Group
+    group:
+      name: cat
+      state: present
+    tags:
+    - group

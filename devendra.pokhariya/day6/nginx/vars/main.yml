@@ -1,0 +1,5 @@
+---
+# vars file for nginx
+my_name: Sandeep
+nginx_port: 8088
+nginx_version: 1.16.1

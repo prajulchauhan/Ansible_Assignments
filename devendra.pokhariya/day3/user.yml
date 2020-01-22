@@ -1,0 +1,17 @@
+---
+  - name: Change user information in anible
+    hosts: webservers
+    become: yes
+    gather_facts: no
+
+    tasks:
+    - name: Create a group for user
+      group:
+        name: developers
+        state: present
+    - name : user with above group
+      user:
+        name: web
+        groups: developers
+        state: present
+        append: yes

@@ -1,0 +1,11 @@
+server {
+
+listen 80;
+root /var/www/html;
+index index.html;
+
+server_name {{ username }}.opstree.com;
+
+access_log /var/log/nginx/{{ username }}/access.log;
+error_log /var/log/nginx/{{ username }}/error.log;
+}

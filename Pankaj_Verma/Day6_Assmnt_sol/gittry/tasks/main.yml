@@ -1,0 +1,31 @@
+---
+  - name: Git Clone
+    git:
+      repo: https://gitlab.com/pankaj.verma2/pankaj.git
+      version: master
+      clone: yes
+      dest: /var/www/html/pankaj
+
+  - name: copy conf files
+    template:
+      src: default.j2
+      dest: /etc/nginx/sites-available/{{ user }}.conf
+  
+  - name: hosts config
+    lineinfile:
+      path: /etc/hosts
+      line: 127.0.0.1 sandy.opstree.com
+      create: yes
+  
+  - name: Create Log path
+    file:
+      path: /var/log/nginx/{{ user }}
+      state: directory
+
+  - name: symlink
+    file:
+      src: /etc/nginx/sites-available/{{ user }}.conf
+      dest: /etc/nginx/sites-enabled/{{ user }}.conf
+      state: link
+    notify:
+      - Nginx Restart

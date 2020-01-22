@@ -1,0 +1,64 @@
+--- 
+- name: Day 5 Assignmnt
+  hosts: webservers
+  become: yes
+  vars_prompt:
+  - name: user
+    prompt: "Enter your user to create?"
+    private: no 
+  tasks: 
+  - name: install Apache
+    apt: 
+      name: apache2
+      state: present
+
+  - name: Fetch files
+    copy:
+      dest: /var/www/html/index.html
+      content: "pankaj {{ ansible_hostname }} {{ ansible_distribution }} {{ ansible_interfaces }}"
+    notify: Restart Apache
+
+  - name: install multiple package
+    apt: 
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - git
+      - vim
+      - ntp
+  
+  - name: Create User
+    user:
+      name: "{{ user }}"
+      state: present
+  
+  - name: Add Ninja And Sensei
+    user:
+      name: "{{ item }}"
+      state: present
+      group: devops
+    with_items:
+      - ninja
+      - sensei
+
+  - name: create user
+    user:
+      name: "{{ user }}"
+      state: present
+
+  - name: Add Ninja Tranning user
+    user:
+      name: "{{ item }}"
+      state: present
+      group: devops
+    with_items:
+      - python 
+      - jackSparrow
+      - jumppingJack
+      - slack
+  
+  handlers:
+  - name: Restart Apache
+    service: 
+      name: apache2
+      state: restarted

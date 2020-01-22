@@ -1,0 +1,16 @@
+--- 
+- name: Load Balancer Conf
+  hosts: webservers
+  vars:
+    batchno: 2
+  vars_prompt:
+    - name: batchno
+      prompt: "Enter the number of batch you want to deploy...."
+      private: no
+  serial: "{{ batchno }}"
+  gather_facts: false
+  become: yes
+  tasks: 
+  roles: 
+  - git
+  

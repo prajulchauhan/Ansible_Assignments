@@ -1,0 +1,19 @@
+---
+# tasks file for onego
+- name: install git
+  apt:
+    name: git
+    state: present
+    
+- name: github one deploy
+  git:
+     repo: https://gitlab.com/devendra.pokhariya/repo1.git
+     dest: /var/www/html/repo1
+     clone: yes
+- name: change line in file apache
+  lineinfile:
+     path: /etc/apache2/sites-enabled/000-default.conf
+     regexp: '^\tDocumentRoot /var/www/html'
+     line: '\tDocumentRoot /var/www/html/repo1/index.html'
+     state: present
+  notify: restart apache

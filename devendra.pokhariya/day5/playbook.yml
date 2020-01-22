@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   become: yes
+   vars:
+    - region: east 
+      
+   tasks:
+      
+      - name: Region change
+        template:
+          src: place.j2
+          dest: /tmp/place

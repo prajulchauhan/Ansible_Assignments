@@ -1,0 +1,10 @@
+--- 
+- name: Load Balancer Conf
+  hosts: webservers
+  serial: 1
+  gather_facts: false
+  become: yes
+  tasks: 
+  roles: 
+  - git
+  

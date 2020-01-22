@@ -1,0 +1,19 @@
+
+server {
+	listen {{ portno }} default_server;
+	listen [::]:{{ portno }} default_server;
+
+	
+	root /var/www/html/pankaj;
+
+	index index.html;
+
+	server_name sandy.opstree.com;
+	access_log /var/log/nginx/{{ user }}/access.log;
+	error_log  /var/log/nginx/{{ user }}/error.log; 
+	location / {
+		   
+        try_files $uri $uri/ =404;
+	}
+
+	}

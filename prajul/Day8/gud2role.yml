@@ -1,0 +1,13 @@
+---
+- hosts: webserver1
+  become: true
+  vars_prompt:
+    name: username
+    prompt: "Enter Username"
+    private: no
+  roles:
+    - gud2role
+
+             
+
+

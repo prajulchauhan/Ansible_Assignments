@@ -1,0 +1,12 @@
+--- 
+- name: Load Balancer Conf
+  hosts: myservers
+  gather_facts: false
+  become: yes
+  tasks: 
+  roles: 
+  - apache
+  - nginx
+  - git
+  - haproxy
+  

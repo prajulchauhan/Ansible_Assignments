@@ -1,0 +1,10 @@
+---
+- name: Installing Haproxy
+  apt:
+    name: haproxy
+    state: present
+
+- name: Load Balancing
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg

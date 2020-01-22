@@ -1,0 +1,28 @@
+---
+  - pause:
+      prompt: "Enter Port No "
+    register: portno
+  
+  - name: install Nginx
+    apt: 
+      name: nginx
+      state: present
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: install Nginx
+    debug: 
+      msg: OS not supported
+    when: ansible_os_family != 'Debian'
+ 
+  - name: copy conf files
+    template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
+
+  - name: copy conf files
+    template:
+      src: default.j2
+      dest: /etc/nginx/sites-enabled
+    notify:
+      - Daemon-reload
+      - Nginx Restart

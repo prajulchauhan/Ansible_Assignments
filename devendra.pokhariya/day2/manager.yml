@@ -1,0 +1,13 @@
+---
+
+ - name: Statement using yaml file
+   hosts: ZoneA
+
+   
+   gather_facts: no
+   
+   tasks:
+    - name: ping webservers
+      ping:
+        data:
+  

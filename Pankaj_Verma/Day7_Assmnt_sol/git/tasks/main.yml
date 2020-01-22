@@ -1,0 +1,18 @@
+---
+  - name: Git Clone
+    git:
+      repo: https://gitlab.com/pankaj.verma2/pankaj.git
+      version: master
+      clone: yes
+      dest: /var/www/html/pankaj
+
+  - name: Changing index path
+    lineinfile:
+      path: /etc/httpd/conf.d/welcome.conf
+      regexp: '^\^Alias /var/www/html/pankaj/index.html'
+      line: 'Alias /.noindex.html /var/www/html/pankaj/index.html'
+      state: present
+    notify: 
+      - httpd restart
+
+    

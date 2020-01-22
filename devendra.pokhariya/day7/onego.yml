@@ -1,0 +1,6 @@
+---
+ - hosts: host
+   roles:
+    - role: onego
+      become: yes
+   gather_facts: no

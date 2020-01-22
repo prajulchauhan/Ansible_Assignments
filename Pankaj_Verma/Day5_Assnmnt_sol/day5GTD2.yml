@@ -1,0 +1,13 @@
+--- 
+- name: Day 5 Assignmnt
+  hosts: webservers
+  become: yes
+  vars:
+    install: no
+  tasks: 
+  - name: install Cron
+    apt: 
+      name: cron
+      state: present
+    when: install == "yep"
+    

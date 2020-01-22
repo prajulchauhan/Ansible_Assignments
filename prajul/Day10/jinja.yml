@@ -1,0 +1,9 @@
+---
+- name: variables printing
+  hosts: webserver1
+  gather_facts: true
+  tasks:
+  - name: print all environment variables in ansible
+    template:
+      src: table.html.j2
+      dest: /home/ubuntu/table.html

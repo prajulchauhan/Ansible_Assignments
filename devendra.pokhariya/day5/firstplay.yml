@@ -1,0 +1,38 @@
+---
+ - name : Install apache
+   hosts: localhost
+   gather_facts: no
+   become: yes
+   vars:
+      username: Dev Pokhariya
+   tasks:
+
+
+     - name: Install apache
+       apt:
+         name: apache2
+         state: present
+
+     - name: Write custom name
+       template:
+          src: index.html
+          dest: /var/www/html/index.html 
+       notify: 
+            - restart apache
+# Update above playbook to reload apache only when content of home page get's updated.
+   handlers:
+      - name: restart apache
+        service:
+            name: apache2
+            state: restarted
+#Update above playbook to install git, vim, ntp
+
+      - name: install Packages.
+        with_items:
+           - git
+           - vim
+           - ntp
+        apt:
+            name: "{{ items }}"
+            state: present
+

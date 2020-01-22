@@ -1,0 +1,25 @@
+---
+# tasks file for nginx
+
+  - name: Install Nginx
+    apt:
+      name: nginx
+      state: present
+    when: 
+          ansible_os_family == "Debian"
+
+  - name: output msg
+    debug:
+      msg: Os not supported
+    when:
+       ansible_os_family != "Debian"
+
+
+  - name: home page Nginx
+    template:
+       src: index.j2
+       dest: /var/www/html/index.nginx-debian.html
+    notify:
+        - restart nginx
+        - deamon-reload
+    

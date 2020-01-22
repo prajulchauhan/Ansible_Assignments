@@ -1,0 +1,6 @@
+--- 
+- name: Day 5 Assignmnt
+  hosts: webservers
+  become: yes
+  tasks: 
+    - include_tasks: tasks.yml
