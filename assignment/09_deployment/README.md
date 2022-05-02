@@ -11,7 +11,7 @@ In this section we will learn how to use ansible for Deployment purpose
 - Create below infrastructure
   - 4 Web servers having Apache.
   - 1 LoadBalancer server having Nginx.
-- Create a git repository having an index.html "Hello from Opstree".
+- Create a git repository having an index.html "Hello World".
 - Create an ansible role to setup apache.
 - Create an ansible role to setup Nginx as a load balancer on the 4 apache web servers
 - Create an ansible role to deploy the code from the git repository to all web servers in one single go.
