@@ -1,9 +1,0 @@
----
-  - name: ansible modules to fetch system info 
-    hosts: webservers
-    gather_facts: true
-    tasks:
-    - name: thy
-      setup:
-        filter: ansible_default_ipv4.address
-

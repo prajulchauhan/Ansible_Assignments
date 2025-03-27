@@ -1,9 +1,0 @@
----
- 
-  - name: install Apache
-    yum: 
-      name: httpd
-      state: present
-    
-  
-  

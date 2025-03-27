@@ -1,7 +1,0 @@
---- 
-- name: Day6 Good To Do
-  hosts: myservers
-  become: yes
-  tasks: 
-  roles: 
-  - gittry  

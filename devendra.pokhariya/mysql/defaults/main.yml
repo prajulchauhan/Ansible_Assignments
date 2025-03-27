@@ -1,5 +1,0 @@
----
-# defaults file for mysql
-mysql_root_password: rtt
-host: 127.0.0.1
-ak_password: ak

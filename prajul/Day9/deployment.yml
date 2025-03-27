@@ -1,6 +1,0 @@
----
-- hosts: apacheservers
-  become: true
-  serial: 1
-  roles:
-    - apache     

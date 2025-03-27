@@ -1,6 +1,0 @@
----
- - hosts: host
-   roles:
-    - role: load
-      become: yes
-   gather_facts: no

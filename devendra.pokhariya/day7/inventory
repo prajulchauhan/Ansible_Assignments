@@ -1,9 +1,0 @@
-[host]
-3.133.138.129
-18.188.200.225
-3.19.53.30
-3.134.80.4
-[host:vars]
-ansible_ssh_private_key_file=~/Downloads/DevUbuntu.pem
-ansible_ssh_user=ec2-user
-ansible_python_interpreter='/usr/bin/env python3.6'

@@ -1,9 +1,0 @@
---- 
-- name: Apache INSTALL and CONF
-  hosts: webservers
-  gather_facts: false
-  become: yes
-  tasks: 
-  roles: 
-  - apache
-  

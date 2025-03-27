@@ -1,7 +1,0 @@
-#! /bin/bash
-      
-echo "Welcome to nginx Installation"
-echo "Installation started"
-sudo yum -y install nginx*
-echo "nginx installed"
-sudo systemctl restart nginx

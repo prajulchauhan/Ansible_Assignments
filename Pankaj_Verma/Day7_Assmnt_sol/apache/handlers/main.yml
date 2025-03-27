@@ -1,8 +1,0 @@
----
-- name: Apache Restart
-  service:
-    name: apache2
-    state: restarted
-- name: Daemon-reload
-  systemd:
-    daemon-reload: yes
